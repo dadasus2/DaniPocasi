@@ -1,5 +1,6 @@
 const cityForm = document.querySelector('form');
 const time = document.querySelector('img.time')
+const icon = document.querySelector('.icon img')
 
 const updateCity = async (city) => {
     const cityDetails = await getCity(city)
@@ -24,6 +25,10 @@ const updateCity = async (city) => {
     else {
         time.src = "night.svg"
     }
+
+    const iconSrc = `icons/${weather.WeatherIcon}.svg`
+    icon.src = iconSrc
+
 
     return {
         cityDetails: cityDetails,
