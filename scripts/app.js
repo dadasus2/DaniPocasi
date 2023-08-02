@@ -1,5 +1,5 @@
 const cityForm = document.querySelector('form');
-
+const time = document.querySelector('img.time')
 
 const updateCity = async (city) => {
     const cityDetails = await getCity(city)
@@ -11,9 +11,20 @@ const updateCity = async (city) => {
     let temperature = document.querySelector('.temperature')
     temperature.textContent = weather.Temperature.Metric.Value + "°C"
 
-    console.log(weather)
     let cityName = document.querySelector('.cityName')
     cityName.textContent = city
+
+    document.querySelector('.card').style.display = "block"
+
+    console.log(weather)
+
+    if (weather.IsDayTime) {
+        time.src = "day.svg"
+    }
+    else {
+        time.src = "night.svg"
+    }
+
     return {
         cityDetails: cityDetails,
         weather: weather
