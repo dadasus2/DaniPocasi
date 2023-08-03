@@ -2,7 +2,10 @@ const cityForm = document.querySelector('form');
 const time = document.querySelector('img.time')
 const icon = document.querySelector('.icon img')
 
+
+
 const updateCity = async (city) => {
+
     const cityDetails = await getCity(city)
     const weather = await getWeather(cityDetails.Key)
 
@@ -29,12 +32,14 @@ const updateCity = async (city) => {
     const iconSrc = `icons/${weather.WeatherIcon}.svg`
     icon.src = iconSrc
 
+    console.log(cityDetails)
 
     return {
         cityDetails: cityDetails,
         weather: weather
     }
 }
+
 
 cityForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -44,6 +49,6 @@ cityForm.addEventListener('submit', e => {
 
     const cityName = document.querySelector('.cityName')
 
-
-    updateCity(city).then(data => console.log(data))
+    updateCity(city).then(data)
 })
+

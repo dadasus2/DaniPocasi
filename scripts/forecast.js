@@ -1,4 +1,4 @@
-const key = "kFyHcl9yojt7NZlK1rl6OVhn9XATrwtb";
+const key = "2H5RlZ1Zm0BenfnuDDrv1n7XpY3rHbqb";
 
 const getWeather = async (cityId) => {
     const link = "https://dataservice.accuweather.com/currentconditions/v1/";
@@ -7,6 +7,7 @@ const getWeather = async (cityId) => {
     const output = await fetch(link + query)
 
     const data = await output.json()
+
 
     return data[0]
 }
